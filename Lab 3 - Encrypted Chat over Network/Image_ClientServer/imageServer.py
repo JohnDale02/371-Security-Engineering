@@ -3,7 +3,7 @@ import sys
 import re
 import struct
 from RSA import decrypt
-import des
+import DES
 
 
 PORT_NUMBER = 5000
@@ -23,7 +23,6 @@ while True:
         data=data.decode()
         print(data)
         if data.find('public_key')!=-1: #client has sent their public key\
-            ###################################your code goes here#####################################
             #retrieve public key and private key from the received message (message is a string!)
 
             #data is the message (the public key) 
@@ -34,7 +33,6 @@ while True:
             public_key_n= int(temp[2])
             print ('public key is : %d, %d'%(public_key_e,public_key_n))
         elif data.find('des_key')!=-1: #client has sent their DES key
-            ###################################your code goes here####################
             #read the next 8 bytes for the DES key by running (data,addr) = mySocket.recvfrom(SIZE) 8 times and then decrypting with RSA
             print("data" +data)
             print(data)
@@ -51,15 +49,11 @@ while True:
                 cipher = int(data)
                 des_key+=decrypt((public_key_e, public_key_n),cipher)
 
-
             print ('DES key is :' + des_key)
-
-
 
             #now we will receive the image from the client
             (data,addr) = mySocket.recvfrom(SIZE)
             #decrypt the image
-            ###################################your code goes here####################
             #the received encoded image is in data
             #perform des decryption using des.py
             coder=des.des()
@@ -82,7 +76,3 @@ while True:
             break
         else:
             continue
-                #python2: print data ,
-
-
-
