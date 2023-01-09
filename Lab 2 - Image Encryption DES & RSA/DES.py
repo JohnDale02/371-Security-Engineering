@@ -246,7 +246,7 @@ class des():
                 result[a] = int(j)
                 a += 1
             round = round+1
-        ###################################your code goes here###################################
+
         #for each 6 bit subblock you need to apply the corresponding s box (using the compute_s_box function) and save the result in result value
         # result is a list of integer values 1 or 0
         #the following code is wrong and needs to be replaced
@@ -312,7 +312,7 @@ class des():
         currRow = currSBox[Row] 
         decValue = currRow[Column]
 
-        ###################################your code goes here###################################
+
         # compute the corresponding row and column in the s box and choose the correct s box based on round
         # the input block is a list of integers for 1 or 0  e.g. block=[1,1,0,0,0,0,0]
         #return a string of 4 bits e.g. '1111' as the output, the binvalue() function is helpful
