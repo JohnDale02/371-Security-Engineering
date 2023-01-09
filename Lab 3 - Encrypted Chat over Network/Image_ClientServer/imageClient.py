@@ -1,6 +1,6 @@
 
 from pickle import FALSE
-import des
+import DES
 import sys
 from socket import socket, AF_INET, SOCK_DGRAM, gethostbyname
 from RSA import generate_keypair,encrypt,decrypt
@@ -21,7 +21,7 @@ message='hello'
 #get these two numbers from the excel file
 p=1297273
 q=1297651
-###################################your code goes here#####################################
+
 #generate public and private key from the p and q values
 public=[0,0]
 private=[0,0]
@@ -35,7 +35,7 @@ mySocket.sendto(message.encode(),(SERVER_IP,PORT_NUMBER))
 #encode converts string to a form sent over the socket 
 message=('des_key')
 mySocket.sendto(message.encode(),(SERVER_IP,PORT_NUMBER))
-###################################your code goes here#####################################
+
 #encode the DES key with RSA and save in DES_encoded, the value below is just an example
 
 des_encoded=[0]*8
@@ -51,11 +51,12 @@ file=open(r'penguin.jpg',"rb")
 data=file.read()
 file.close()
 
-###################################your code goes here#####################################
+
 #the image is saved in the data parameter, you should encrypt it using des.py
 #set cbc to False when performing encryption, you should use the des class
 #coder=des.des(), use bytearray to send the encryped image through network
 #r_byte is the final value you will send through socket
+
 r_byte=bytearray()
 
 #encrypt image using DES 
